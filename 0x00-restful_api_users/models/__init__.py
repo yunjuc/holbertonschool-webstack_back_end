@@ -5,7 +5,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 from models import base_model, user
 from models.base_model import Base
 
-db_engine = create_engine("mysql+pymysql://{}:{}@{}/{}"
+db_engine = create_engine("mysql+mysqldb://{}:{}@{}/{}"
                           .format(os.getenv('HBNB_YELP_MYSQL_USER'),
                                   os.getenv('HBNB_YELP_MYSQL_PWD'),
                                   os.getenv('HBNB_YELP_MYSQL_HOST'),
