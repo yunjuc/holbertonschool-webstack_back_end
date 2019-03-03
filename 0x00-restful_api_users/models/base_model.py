@@ -17,12 +17,13 @@ class BaseModel:
     def __init__(self):
         '''constructor'''
         self.id = str(uuid.uuid4())
-        self.created_at = str(datetime.utcnow())
-        self.updated_at = str(datetime.utcnow())
+        self.created_at = datetime.utcnow()
+        self.updated_at = datetime.utcnow()
 
     @classmethod
     def all(cls):
         '''return all instances of a class'''
+        # import db_session from function to avoid circular import
         from models import db_session
 
         objs = db_session.query(cls).order_by(cls.created_at.asc()).all()

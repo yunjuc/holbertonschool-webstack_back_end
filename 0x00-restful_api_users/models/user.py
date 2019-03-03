@@ -13,7 +13,7 @@ class User(BaseModel, Base):
     email = Column(String(128), nullable=False)
     first_name = Column(String(128))
     last_name = Column(String(128))
-    __password = Column(String(128), nullable=False)
+    _password = Column(String(128), nullable=False)
 
     def display_name(self):
         '''display name of user'''
@@ -35,27 +35,27 @@ class User(BaseModel, Base):
 
     @property
     def password(self):
-        '''__password getter'''
-        return self.__password
+        '''_password getter'''
+        return self._password
 
     @password.setter
     def password(self, value):
-        '''__password setter'''
+        '''_password setter'''
         if value is None or type(value) != str:
-            self.__password = None
+            self._password = None
         else:
             m = hashlib.md5()
             m.update(value.encode('utf-8'))
-            self.__password = m.hexdigest()
+            self._password = m.hexdigest()
 
     def is_valid_password(self, pwd):
         '''check if password is valid'''
-        if pwd is None or type(pwd) != str or self.__password is None:
+        if pwd is None or type(pwd) != str or self._password is None:
             return False
         else:
             m = hashlib.md5()
             m.update(pwd.encode('utf-8'))
-            if self.__password == m.hexdigest():
+            if self._password == m.hexdigest():
                 return True
             else:
                 return False
@@ -67,10 +67,8 @@ class User(BaseModel, Base):
         obj['email'] = str(self.email)
         obj['first_name'] = str(self.first_name)
         obj['last_name'] = str(self.last_name)
-        obj['created_at'] = str(datetime.strptime(self.created_at
-                                                  .split('.')[0],
+        obj['created_at'] = str(datetime.strftime(self.created_at,
                                                   '%Y-%m-%d %H:%M:%S'))
-        obj['updated_at'] = str(datetime.strptime(self.updated_at
-                                                  .split('.')[0],
+        obj['updated_at'] = str(datetime.strftime(self.updated_at,
                                                   '%Y-%m-%d %H:%M:%S'))
         return obj
