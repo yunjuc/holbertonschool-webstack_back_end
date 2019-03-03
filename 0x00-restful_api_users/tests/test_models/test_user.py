@@ -91,9 +91,9 @@ class TestUserModel(unittest.TestCase):
         self.assertEqual(res, False)
 
     def test_password_empty(self):
-        '''check empty password'''
+        '''check password is none'''
         self.user.password = 'hello'
-        res = self.user.is_valid_password("")
+        res = self.user.is_valid_password(None)
         self.assertEqual(res, False)
 
     def test_wrong_password(self):
@@ -113,25 +113,25 @@ class TestUserModel(unittest.TestCase):
         self.assertIsInstance(self.betty.to_dict(), dict)
 
     def test_is_str_id(self):
-        '''check if id exist'''
+        '''check if id exists'''
         self.assertTrue(self.betty.to_dict()['id'])
 
     def test_is_str_email(self):
-        '''check if email is str'''
-        self.assertIsInstance(self.betty.to_dict()['email'], str)
+        '''check if email exists'''
+        self.assertTrue(self.betty.to_dict()['email'])
 
     def test_is_str_first_name(self):
-        '''check if first name is str'''
-        self.assertIsInstance(self.betty.to_dict()['first_name'], str)
+        '''check if first name exists'''
+        self.assertTrue(self.betty.to_dict()['first_name'])
 
     def test_is_str_last_name(self):
-        '''check if last name is str'''
-        self.assertIsInstance(self.betty.to_dict()['last_name'], str)
+        '''check if last name exists'''
+        self.assertTrue(self.betty.to_dict()['last_name'])
 
     def test_is_str_created_at(self):
-        '''check if created_at is str'''
-        self.assertIsInstance(self.betty.to_dict()['created_at'], str)
+        '''check if created_at exists'''
+        self.assertTrue(self.betty.to_dict()['created_at'])
 
     def test_is_str_updated_at(self):
-        '''check if updated_at is str'''
-        self.assertIsInstance(self.betty.to_dict()['updated_at'], str)
+        '''check if updated_at exists'''
+        self.assertTrue(self.betty.to_dict()['updated_at'])
