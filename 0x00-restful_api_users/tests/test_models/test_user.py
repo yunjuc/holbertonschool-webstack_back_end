@@ -72,12 +72,12 @@ class TestUserModel(unittest.TestCase):
 
     def test_default_password(self):
         '''when no password is set'''
-        self.assertEqual(self.user.password, None)
+        self.assertEqual(self.user._password, None)
 
     def test_set_password_not_str(self):
         '''when set password with none str'''
         self.user.password = 888
-        self.assertEqual(self.user.password, None)
+        self.assertEqual(self.user._password, None)
 
     def test_password_none(self):
         '''check when no password'''
@@ -113,8 +113,8 @@ class TestUserModel(unittest.TestCase):
         self.assertIsInstance(self.betty.to_dict(), dict)
 
     def test_is_str_id(self):
-        '''check if id is str'''
-        self.assertIsInstance(self.betty.to_dict()['id'], str)
+        '''check if id exist'''
+        self.assertTrue(self.betty.to_dict()['id'])
 
     def test_is_str_email(self):
         '''check if email is str'''

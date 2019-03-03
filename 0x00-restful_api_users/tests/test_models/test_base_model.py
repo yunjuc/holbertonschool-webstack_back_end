@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 '''tests for base model'''
+import datetime
 import unittest
 from models.base_model import BaseModel
 
@@ -20,8 +21,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsNotNone(self.base.id)
 
     def test_id_is_string(self):
-        '''test id is string'''
-        self.assertTrue(type(self.base.id), str)
+        '''test id is string instance'''
+        self.assertIsInstance(self.base.id, str)
 
     def test_id_unique(self):
         '''test id is unique'''
@@ -32,6 +33,14 @@ class TestBaseModel(unittest.TestCase):
         '''test create date exist'''
         self.assertIsNotNone(self.base.created_at)
 
+    def test_created_at_is_datetime(self):
+        '''test created_at is datetime instance'''
+        self.assertIsInstance(self.base.created_at, datetime.datetime)
+
     def test_updated_exist(self):
         '''test udpate date exist'''
         self.assertIsNotNone(self.base.updated_at)
+
+    def test_updated_at_is_datetime(self):
+        '''test updated_at is datetime instance'''
+        self.assertIsInstance(self.base.updated_at, datetime.datetime) 
