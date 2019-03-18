@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/", strict_slashes=False)
 def index():
-    '''GET index'''
+    '''index() - GET index'''
     return "Holberton School"
 
 
