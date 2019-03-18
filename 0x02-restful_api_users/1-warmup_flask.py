@@ -4,10 +4,15 @@ from flask import Flask
 
 
 app = Flask(__name__)
-app.url_map.strict_slashes = False
 
 
-@app.route("/c")
+@app.route("/", strict_slashes=False)
+def index():
+    '''GET index'''
+    return "Holberton School"
+
+
+@app.route("/c", strict_slashes=False)
 def get_c():
     '''GET /c'''
     return "C is fun!"
