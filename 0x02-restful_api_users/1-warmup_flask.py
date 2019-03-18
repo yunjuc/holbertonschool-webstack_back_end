@@ -8,15 +8,15 @@ app = Flask(__name__)
 
 @app.route("/", strict_slashes=False)
 def index():
-    '''GET index'''
+    '''index() - GET index'''
     return "Holberton School"
 
 
 @app.route("/c", strict_slashes=False)
 def get_c():
-    '''GET /c'''
+    '''get_c() - GET /c'''
     return "C is fun!"
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5000)
