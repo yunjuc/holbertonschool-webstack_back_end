@@ -12,13 +12,13 @@ port = os.getenv('HBNB_API_PORT')
 
 @app.route("/")
 def get_index():
-    '''GET /'''
+    '''get_index() - GET /'''
     return "Holberton School"
 
 
 @app.route("/c")
 def get_c():
-    '''GET /c'''
+    '''get_c() - GET /c'''
     return "C is fun!"
 
 
