@@ -5,6 +5,8 @@ from flask import Flask
 
 
 app = Flask(__name__)
+host = os.getenv('HBNB_API_HOST')
+port = os.getenv('HBNB_API_PORT')
 
 
 @app.route("/", strict_slashes=False)
@@ -20,6 +22,4 @@ def get_c():
 
 
 if __name__ == '__main__':
-    host = os.getenv('HBNB_API_HOST')
-    port = os.getenv('HBNB_API_PORT')
     app.run(host=host, port=port)
