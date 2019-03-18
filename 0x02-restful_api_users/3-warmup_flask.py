@@ -13,7 +13,7 @@ data = {"C": "is fun", "Python": "is cool", "Sysadmin": "is hiring"}
 
 @app.route("/hbtn")
 def get_hbtn():
-    '''GET /hbtn'''
+    '''get_hbtn() - GET /hbtn'''
     return jsonify(data)
 
 
