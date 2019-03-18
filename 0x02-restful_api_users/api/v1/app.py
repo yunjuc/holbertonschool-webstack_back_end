@@ -14,13 +14,13 @@ port = os.getenv('HBNB_API_PORT')
 
 @app.teardown_appcontext
 def close_db(error):
-    '''close db'''
+    '''close_db() - close db'''
     db_session.close()
 
 
 @app.errorhandler(404)
 def error_page(e):
-    '''handle 404 not found'''
+    '''error_page(e) - handle 404 not found'''
     return jsonify({"error": "Not found"})
 
 
