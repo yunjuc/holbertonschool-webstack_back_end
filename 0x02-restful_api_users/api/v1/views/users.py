@@ -8,7 +8,7 @@ from models import db_session
 
 @app_views.route('/users', methods=['GET', 'POST'], strict_slashes=False)
 def get_users():
-    '''get all users or add a new user'''
+    '''get_users() - get all users or add a new user'''
     if request.method == 'GET':
         users = User.all()
         return jsonify([user.to_dict() for user in users])
@@ -36,7 +36,7 @@ def get_users():
 @app_views.route('/users/<user_id>', methods=['GET', 'DELETE', 'PUT'],
                  strict_slashes=False)
 def get_user(user_id):
-    '''get user info, delete user and udpate user info by id'''
+    '''get_user() - get user info, delete user and udpate user info by id'''
     user = User.get(user_id)
     if user is None:
         abort(404)
