@@ -1,1 +1,1 @@
-"""API module init file documentation"""
+""" api/v1/__init__.py """
