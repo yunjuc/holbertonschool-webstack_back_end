@@ -20,7 +20,7 @@ def close_db(error):
 
 @app.errorhandler(404)
 def error_page(e):
-    '''error_page(e) - handle 404 not found'''
+    '''error_page() - handle 404 not found'''
     return jsonify({"error": "Not found"})
 
 
