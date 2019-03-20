@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 '''app module'''
 import os
 from api.v1.views import app_views
@@ -9,7 +9,7 @@ from models import db_session
 app = Flask(__name__)
 app.register_blueprint(app_views)
 host = os.getenv('HBNB_API_HOST')
-port = os.getenv('HBNB_API_PORT')
+port = int(os.getenv('HBNB_API_PORT'))
 
 
 @app.teardown_appcontext
