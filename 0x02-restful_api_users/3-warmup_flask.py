@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 host = os.getenv('HBNB_API_HOST')
-port = os.getenv('HBNB_API_PORT')
+port = int(os.getenv('HBNB_API_PORT'))
 
 data = {"C": "is fun", "Python": "is cool", "Sysadmin": "is hiring"}
 
