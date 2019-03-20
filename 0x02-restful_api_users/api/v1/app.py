@@ -21,7 +21,7 @@ def close_db(error):
 @app.errorhandler(404)
 def error_page(e):
     '''error_page() - handle 404 not found'''
-    return jsonify({"error": "Not found"})
+    return jsonify({"error": "Not found"}), 404
 
 
 if __name__ == '__main__':
