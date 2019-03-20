@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''app module documentation'''
+'''app.py -- app module documentation'''
 import os
 from api.v1.views import app_views
 from flask import Flask, jsonify
@@ -14,13 +14,13 @@ port = int(os.getenv('HBNB_API_PORT'))
 
 @app.teardown_appcontext
 def close_db(error):
-    '''close_db() - close db'''
+    '''close_db() - close database after api call'''
     db_session.close()
 
 
 @app.errorhandler(404)
 def error_page(e):
-    '''error_page() - handle 404 not found'''
+    '''error_page() - handle 404 not found error'''
     return jsonify({"error": "Not found"}), 404
 
 
