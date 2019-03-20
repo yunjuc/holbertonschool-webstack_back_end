@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''app module'''
+'''app module documentation'''
 import os
 from api.v1.views import app_views
 from flask import Flask, jsonify
