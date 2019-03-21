@@ -3,9 +3,8 @@
 from flask import Flask, jsonify
 import os
 
+
 app = Flask(__name__)
-host = os.getenv('HBNB_API_HOST')
-port = int(os.getenv('HBNB_API_PORT'))
 
 
 @app.route("/", strict_slashes=False)
@@ -27,4 +26,6 @@ def get_hbtn():
 
 
 if __name__ == '__main__':
+    host = os.getenv('HBNB_API_HOST')
+    port = int(os.getenv('HBNB_API_PORT'))
     app.run(host=host, port=port)
