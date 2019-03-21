@@ -8,6 +8,17 @@ host = os.getenv('HBNB_API_HOST')
 port = int(os.getenv('HBNB_API_PORT'))
 
 
+@app.route("/", strict_slashes=False)
+def get_index():
+    '''get_index() - GET /'''
+    return "Holberton School"
+
+
+@app.route("/c", strict_slashes=False)
+def get_c():
+    '''get_c() - GET /c'''
+
+
 @app.route("/hbtn", strict_slashes=False)
 def get_hbtn():
     '''get_hbtn() - GET /hbtn'''
