@@ -28,4 +28,3 @@ if __name__ == "__main__":
     host = os.environ.get('HBNB_API_HOST')
     port = int(os.environ.get('HBNB_API_PORT'))
     app.run(host=host, port=port)
-    doctest.testmod(verbose=True)
