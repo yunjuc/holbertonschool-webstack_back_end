@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-app.py - app file sdklfa sklflasdf lasdflkj sadflk asdfasjk fd
+app.py - app module
 """
 import os
 from api.v1.views import app_views
