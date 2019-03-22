@@ -6,12 +6,6 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route("/", strict_slashes=False)
-def index():
-    '''index() - GET index'''
-    return "Holberton School"
-
-
 @app.route("/c", strict_slashes=False)
 def get_c():
     '''get_c() - GET /c'''

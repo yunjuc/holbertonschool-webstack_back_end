@@ -48,7 +48,7 @@ def get_user(user_id):
         return jsonify({})
     if request.method == 'PUT':
         if not request.json:
-            return make_request(jsonify(error="Wrong format"), 400)
+            return make_response(jsonify(error="Wrong format"), 400)
         if request.json.get('first_name'):
             user.first_name = request.json.get('first_name')
         if request.json.get('last_name'):
