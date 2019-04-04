@@ -3,8 +3,8 @@
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
-from models import base_model, user
-from models.base_model import Base
+from models.base_model import Base, BaseModel
+from models.user import User
 
 db_engine = create_engine("mysql+mysqldb://{}:{}@{}/{}"
                           .format(os.getenv('HBNB_YELP_MYSQL_USER'),
