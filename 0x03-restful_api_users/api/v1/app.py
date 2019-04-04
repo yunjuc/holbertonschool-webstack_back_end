@@ -14,6 +14,11 @@ app = Flask(__name__)
 app.register_blueprint(app_views)
 app.url_map.strict_slashes = False
 
+if os.environ.get('HBNB_YELP_AUTH') == 'basic_auth':
+    auth = BasicAuth()
+else:
+    auth = Auth()
+
 
 @app.before_request
 def before_request():
@@ -52,11 +57,6 @@ def close_db(error):
 
 
 if __name__ == "__main__":
-    if os.environ.get('HBNB_YELP_AUTH') == 'basic_auth':
-        auth = BasicAuth()
-    else:
-        auth = Auth()
-
     host = os.environ.get('HBNB_API_HOST')
     port = int(os.environ.get('HBNB_API_PORT'))
     app.run(host=host, port=port)
