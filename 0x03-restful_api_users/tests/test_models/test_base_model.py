@@ -43,4 +43,4 @@ class TestBaseModel(unittest.TestCase):
 
     def test_updated_at_is_datetime(self):
         '''test updated_at is datetime instance'''
-        self.assertIsInstance(self.base.updated_at, datetime.datetime) 
+        self.assertIsInstance(self.base.updated_at, datetime.datetime)
