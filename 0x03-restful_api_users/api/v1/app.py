@@ -13,17 +13,17 @@ from api.v1.auth.basic_auth import BasicAuth
 app = Flask(__name__)
 app.register_blueprint(app_views)
 app.url_map.strict_slashes = False
- 
+
 
 @app.before_request
 def before_request():
     ''''before_request() - check auth route'''
     paths = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
-    if auth.require_auth(request.path, paths) == False:
+    if auth.require_auth(request.path, paths) is False:
         return
-    if auth.authorization_header(request) == None:
+    if auth.authorization_header(request) is None:
         abort(401)
-    if auth.current_user(request) == None:
+    if auth.current_user(request) is None:
         abort(403)
 
 
@@ -58,5 +58,5 @@ if __name__ == "__main__":
         auth = Auth()
 
     host = os.environ.get('HBNB_API_HOST')
-    port = int(os.environ.get('HBNB_API_PORT')) 
+    port = int(os.environ.get('HBNB_API_PORT'))
     app.run(host=host, port=port)
