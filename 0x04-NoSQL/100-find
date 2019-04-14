@@ -1,0 +1,2 @@
+//list documents name match "Holberton"
+db.school.find({name: {$regex: /^Holberton.*/}}, {topics: 0})
