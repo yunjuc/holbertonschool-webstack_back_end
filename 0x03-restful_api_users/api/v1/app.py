@@ -8,11 +8,13 @@ from flask import Flask, jsonify, request, abort
 from models import db_session
 from api.v1.auth.auth import Auth
 from api.v1.auth.basic_auth import BasicAuth
+from flask_cors import CORS
 
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
 app.url_map.strict_slashes = False
+CORS(app)
 
 if os.environ.get('HBNB_YELP_AUTH') == 'basic_auth':
     auth = BasicAuth()
@@ -23,7 +25,7 @@ else:
 @app.before_request
 def before_request():
     ''''before_request() - check auth route'''
-    paths = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
+    paths = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/', '/api/v1/stats/']
     if auth.require_auth(request.path, paths) is False:
         return
     if auth.authorization_header(request) is None:
